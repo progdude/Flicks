@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import EZLoadingActivity
 
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -98,9 +99,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func onRefresh() {
+        EZLoadingActivity.show("Loading...", disableUI: true);
         delay(2, closure: {
             self.refreshControl.endRefreshing()
+            EZLoadingActivity.hide(success: true, animated: true)
         })
+        
     }
     
     

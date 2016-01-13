@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D06884DF1C58ADCBC154E160'
-               BlueprintName = 'Pods-MovieViewer'
+               BlueprintIdentifier = '9814486B3B7ABE24F1FB937B'
+               BlueprintName = 'EZLoadingActivity'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_MovieViewer.framework'>
+               BuildableName = 'EZLoadingActivity.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
