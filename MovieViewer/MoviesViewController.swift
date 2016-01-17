@@ -28,6 +28,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         networkLabel.hidden = true;
         searchBar.delegate = self;
         
+
+        
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
@@ -46,7 +48,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            NSLog("response: \(responseDictionary)")
+                            
                             
                             self.movies = responseDictionary["results"] as! [NSDictionary];
                             self.filteredResults = self.movies;
@@ -95,7 +97,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         cell.ratingLabel.text = "\(rating)";
         cell.overviewLabel.text = overview;
         cell.titleLabel.text = title;
-        cell.posterView.setImageWithURL(imageUrl!);
+        cell.posterView.setImageWithURLRequest(NSURLRequest(URL: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
+            cell.posterView.image = image
+            
+            UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                cell.posterView.alpha = 1.0
+                }, completion: nil)
+            }, failure: nil);
+        
+        
+        
         return cell;
     }
     
@@ -117,9 +128,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    @IBAction func onTap(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -134,6 +143,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return true
     }
     
+    @IBAction func onTap(sender: AnyObject) {
+        view.endEditing(true);
+    }
     
     
 
