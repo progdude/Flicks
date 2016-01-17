@@ -24,11 +24,11 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
--[x] Displays user ratings 
--[x] Added Home Screen
--[x] Added Segue and got rid of navigation bar
--[x] Added image animations(rotations!)
--[x] Figured out how to add rounded edges to a button(much harder than it sounds)
+- [x] Displays user ratings 
+- [x] Added Home Screen
+- [x] Added Segue and got rid of navigation bar
+- [x] Added image animations(rotations!)
+- [x] Figured out how to add rounded edges to a button(much harder than it sounds)
 
 
 
