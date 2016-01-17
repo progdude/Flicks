@@ -10,18 +10,23 @@ import UIKit
 import AFNetworking
 import EZLoadingActivity
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var networkLabel: UILabel!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var refreshControl: UIRefreshControl!
     
     var movies:[NSDictionary]?;
+    var filteredResults: [NSDictionary]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self;
         tableView.delegate = self;
+        networkLabel.hidden = true;
+        searchBar.delegate = self;
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -44,8 +49,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                             NSLog("response: \(responseDictionary)")
                             
                             self.movies = responseDictionary["results"] as! [NSDictionary];
+                            self.filteredResults = self.movies;
                             self.tableView.reloadData();
                     }
+                }
+                else{
+                    self.tableView.hidden = true;
+                    self.networkLabel.hidden = false;
                 }
         });
         task.resume()
@@ -62,11 +72,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        if let movies = movies {
-            return movies.count;
-        }
-        else{
-            return 0;
+        if let filteredResults = filteredResults {
+            return filteredResults.count
+        } else {
+            return 0
         }
         
     }
@@ -74,7 +83,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("MovieCell", forIndexPath: indexPath) as! MovieCell;
         
-        let movie = movies![indexPath.row];
+        let movie = filteredResults[indexPath.row];
         let title = movie["title"] as! String;
         let rating = movie["vote_average"] as! Double;
         let overview = movie["overview"] as! String;
@@ -106,6 +115,23 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             EZLoadingActivity.hide(success: true, animated: true)
         })
         
+    }
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredResults = searchText.isEmpty ? movies : movies!.filter({ (movie: NSDictionary) -> Bool in
+            return (movie["title"] as! String).rangeOfString(searchText, options: .CaseInsensitiveSearch) != nil
+        })
+        self.tableView.reloadData()
+        
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     
