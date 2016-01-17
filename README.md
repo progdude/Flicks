@@ -1,4 +1,4 @@
-# Project 1 - *Name of App Here*
+# Project 1 - *MovieViewer*
 
 **MovieViewr** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
@@ -24,8 +24,12 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 -[x] Displays user ratings 
+-[x] Added Home Screen
+-[x] Added Segue and got rid of navigation bar
+-[x] Added image animations(rotations!)
+-[x] Figured out how to add rounded edges to a button(much harder than it sounds)
 
-- [ ] List anything else that you can get done to improve the app functionality!
+
 
 ## Video Walkthrough 
 
@@ -37,11 +41,11 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+AFNetworking provided me with a lot of errors at first. In addition, getting some animations and UI to work was quite challenging.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Archit Rathi]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
