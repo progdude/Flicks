@@ -76,15 +76,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let movie = movies![indexPath.row];
         let title = movie["title"] as! String;
+        let rating = movie["vote_average"] as! Double;
         let overview = movie["overview"] as! String;
         let posterPath = movie["poster_path"] as! String!;
         
         let baseUrl = "http://image.tmdb.org/t/p/w500";
         
         let imageUrl = NSURL(string: baseUrl+posterPath);
-        
-        cell.titleLabel.text = title;
+        cell.ratingLabel.text = "\(rating)";
         cell.overviewLabel.text = overview;
+        cell.titleLabel.text = title;
         cell.posterView.setImageWithURL(imageUrl!);
         return cell;
     }
