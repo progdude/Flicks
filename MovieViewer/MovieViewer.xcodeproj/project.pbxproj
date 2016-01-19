@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F6F7D1E1C4DE8FA00746384 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F7D1D1C4DE8FA00746384 /* DetailViewController.swift */; };
 		0F889BF41C3C83CF009EB624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F889BF31C3C83CF009EB624 /* AppDelegate.swift */; };
 		0F889BF91C3C83CF009EB624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F889BF71C3C83CF009EB624 /* Main.storyboard */; };
 		0F889BFB1C3C83CF009EB624 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F889BFA1C3C83CF009EB624 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F6F7D1D1C4DE8FA00746384 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		0F889BF01C3C83CF009EB624 /* MovieViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F889BF31C3C83CF009EB624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F889BF81C3C83CF009EB624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				0F889C051C3C844E009EB624 /* MoviesViewController.swift */,
 				0FB032081C4B54F3007CBCB3 /* homeViewController.swift */,
+				0F6F7D1D1C4DE8FA00746384 /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				0F889BF41C3C83CF009EB624 /* AppDelegate.swift in Sources */,
 				0F889C061C3C844E009EB624 /* MoviesViewController.swift in Sources */,
+				0F6F7D1E1C4DE8FA00746384 /* DetailViewController.swift in Sources */,
 				0F889C091C3C956F009EB624 /* MovieCell.swift in Sources */,
 				0FB032091C4B54F3007CBCB3 /* homeViewController.swift in Sources */,
 			);
