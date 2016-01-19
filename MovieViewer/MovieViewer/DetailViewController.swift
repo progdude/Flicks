@@ -19,8 +19,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(movie);
-
+        titleLabel.text = movie["title"] as? String;
+        
+        overviewLabel.text = movie["overview"] as? String;
         // Do any additional setup after loading the view.
     }
 

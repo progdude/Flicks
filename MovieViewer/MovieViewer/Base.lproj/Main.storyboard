@@ -201,7 +201,7 @@
         <!--Navigation Controller-->
         <scene sceneID="e96-t5-rNv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="CRN-KF-hRe" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CRN-KF-hRe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AUK-tD-dll">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
