@@ -22,7 +22,16 @@ class DetailViewController: UIViewController {
         titleLabel.text = movie["title"] as? String;
         
         overviewLabel.text = movie["overview"] as? String;
-        // Do any additional setup after loading the view.
+        
+        
+        let baseUrl = "http://image.tmdb.org/t/p/w500";
+        
+        if let posterPath = movie["poster_path"] as! String!{
+            let posterUrl = NSURL(string: baseUrl+posterPath);
+            posterImage.setImageWithURL(posterUrl!);
+            
+        }
+       
     }
 
     override func didReceiveMemoryWarning() {
